@@ -1,9 +1,16 @@
 # --- CONFIGURATION ---
-$RootPath = "C:\Users\test"
+$RootPath = "C:\Users\Admin"
 $TargetFolder = "target"
 #$TargetFolder = "node_modules"
 $ReadOnlyMode = $true  # Set to $false when you are ready to permanently delete
 # ---------------------
+$DeleteFolder = $args[0]
+
+
+if ($DeleteFolder -eq "Y") {
+    $ReadOnlyMode = $false
+}
+Write-Host "ReadOnlyMode is $ReadOnlyMode " -ForegroundColor Red
 
 # Find all matching directories recursively
 $Matches = Get-ChildItem -Path $RootPath -Directory -Recurse -Filter $TargetFolder
