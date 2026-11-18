@@ -2,12 +2,12 @@
 $RootPath = "C:\Users\Admin"
 $TargetFolder = "target"
 #$TargetFolder = "node_modules"
-$ReadOnlyMode = $true  # Set to $false when you are ready to permanently delete
+$ReadOnlyMode = $true  
 # ---------------------
-$DeleteFolder = $args[0]
+$DeleteFolder = $args[0] # send the parameter Y or y to delete the folder, otherwise it will run in read-only mode
 
 
-if ($DeleteFolder -eq "Y") {
+if ($DeleteFolder -eq "Y" -or $DeleteFolder -eq 'y') {
     $ReadOnlyMode = $false
 }
 Write-Host "ReadOnlyMode is $ReadOnlyMode " -ForegroundColor Red
